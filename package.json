@@ -7,8 +7,8 @@
     "name": "Aleksander Krawiel"
   },
   "scripts": {
-    "serve": "rm -f dist/* && parcel serve src/index.pug",
-    "build": "parcel build --no-source-maps -d build src/index.pug"
+    "serve": "parcel serve src/index.pug",
+    "build": "parcel build --no-source-maps -d . src/index.pug"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.1.0",
