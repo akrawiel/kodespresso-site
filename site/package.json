@@ -7,8 +7,8 @@
     "name": "Aleksander Krawiel"
   },
   "scripts": {
-    "serve": "parcel serve project/src/index.pug",
-    "build": "parcel build --no-source-maps -d . project/src/index.pug"
+    "serve": "rm -f dist/* && parcel serve project/src/index.pug",
+    "build": "parcel build --no-source-maps -d .. project/src/index.pug"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.1.0",
@@ -22,11 +22,17 @@
     "cssnano": "^4.1.7",
     "precss": "^3.1.2",
     "pug": "^2.0.3",
+    "rucksack-css": "^1.0.2",
     "tailwindcss": "^0.7.2",
     "vue-template-compiler": "^2.5.17"
   },
   "dependencies": {
     "vue": "^2.5.17",
     "vue-hot-reload-api": "^2.3.1"
+  },
+  "alias": {
+    "static": "./project/static",
+    "components": "./project/src/components",
+    "entries": "./project/src/entries"
   }
 }

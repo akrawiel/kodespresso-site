@@ -1,0 +1,19 @@
+
+.blog-container[data-v-d28536]{padding:.5rem 1rem;margin-left:auto;margin-right:auto;min-height:80vh
+}
+.blog-container__loader[data-v-d28536]{height:80vh;width:100%;display:flex;align-items:center;justify-content:center
+}
+@-webkit-keyframes icon-rotate-data-v-d28536{
+0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)
+}
+to{-webkit-transform:rotate(1turn);transform:rotate(1turn)
+}
+}
+@keyframes icon-rotate-data-v-d28536{
+0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)
+}
+to{-webkit-transform:rotate(1turn);transform:rotate(1turn)
+}
+}
+.blog-container__loader__icon[data-v-d28536]{-webkit-animation-name:icon-rotate-data-v-d28536;animation-name:icon-rotate-data-v-d28536;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-timing-function:linear;animation-timing-function:linear;font-size:10vh
+}
