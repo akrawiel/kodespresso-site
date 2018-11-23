@@ -52,7 +52,7 @@ export default {
     })
   },
   mounted() {
-    const pathNewest = Number(location.hash.replace(/^#\/blog\//, ""));
+    const pathNewest = parseInt(location.hash.replace(/^#\/blog\//, ""));
 
     import("entries/newest").then(newest => {
       this.newest = Number(newest);
