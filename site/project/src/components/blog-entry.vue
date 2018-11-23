@@ -2,13 +2,18 @@
 .blog-entry__panel
   .blog-entry__title
     slot(name="title")
+    span  (#
+    slot(name="id")
+    span )
   .blog-entry__bottom-row
     .blog-entry__tags
+      i.fas.fa-tag.blog-entry__icon.-left
       .blog-entry__tag(v-for="tag in tags")
         slot(name="tags" :tag="tag")
     .blog-entry__time
-      i.fas.fa-clock.blog-entry__clock
-      slot(name="time")
+      i.fas.fa-clock.blog-entry__icon.-right
+      span
+        slot(name="time")
   .blog-entry__divider
   .blog-entry__content
     slot(name="content")
@@ -16,7 +21,7 @@
 
 <style lang="postcss" scoped>
 .blog-entry__panel {
-  @apply bg-dark-coffee rounded-lg py-4 px-4;
+  @apply bg-dark-coffee rounded-lg py-4 px-4 mb-4;
 }
 
 .blog-entry__title {
@@ -28,7 +33,7 @@
 }
 
 .blog-entry__tags {
-  @apply flex;
+  @apply flex items-center;
 }
 
 .blog-entry__tag {
@@ -40,10 +45,22 @@
 }
 
 .blog-entry__content p {
+  @apply mb-4;
   font-size: 0.9rem;
   line-height: 1.5;
   text-align: justify;
   text-indent: 1.5rem;
+}
+
+.blog-entry__content pre {
+  @apply font-mono bg-darker-coffee p-4 rounded-lg mb-4;
+  font-size: 0.8rem;
+  overflow-x: auto;
+}
+
+.blog-entry__content code {
+  @apply font-mono bg-darker-coffee p-1 rounded-lg;
+  font-size: 0.9rem;
 }
 
 @media (width <= 568px) {
@@ -56,12 +73,12 @@
   }
 }
 
-.blog-entry__clock {
-  @apply mr-1;
+.blog-entry__icon {
+  @apply mr-2;
 }
 
 .blog-entry__divider {
-  @apply mx-2 my-2 h-px bg-latte;
+  @apply mx-2 my-4 h-px bg-latte;
 }
 </style>
 

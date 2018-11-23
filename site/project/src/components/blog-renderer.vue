@@ -1,50 +1,81 @@
 <template lang="pug">
 .blog-container.container
-  .blog-container__loader(v-if="currentEntry === null")
-    i.fas.fa-circle-notch.blog-container__loader__icon
-  component(:is="'blog-' + currentEntry" v-else)
+  .blog-container__content(v-if="currentEntry !== null")
+    .blog-container__navigation
+      button.blog-container__button--previous(:disabled="currentEntry <= 0" @click="changeCurrentEntry(-1)") « Previous entry
+      button.blog-container__button--next(:disabled="currentEntry >= newest" @click="changeCurrentEntry(1)") Next entry »
+    keep-alive
+      component(:is="'Blog' + currentEntry")
 </template>
 
 <style lang="postcss" scoped>
 .blog-container {
-  @apply py-2 px-4 mx-auto min-h-container;
+  @apply px-4 mx-auto min-h-container;
 }
 
-.blog-container__loader {
-  @apply h-container w-full flex items-center justify-center;
+.blog-container__navigation {
+  @apply flex justify-between py-4;
 }
 
-@keyframes icon-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+.blog-container__button--previous,
+.blog-container__button--next {
+  @apply bg-latte text-dark-coffee text-xs py-1 px-2 rounded mb-4;
 }
 
-.blog-container__loader__icon {
-  animation-name: icon-rotate;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  font-size: 10vh;
+.blog-container__button--previous:disabled,
+.blog-container__button--next:disabled {
+  @apply opacity-50;
 }
 </style>
 
 <script>
+import BlogLoader from "components/blog-loader";
+
+const otherOptions = {
+  loading: BlogLoader,
+  delay: 0
+};
+
 export default {
   data: () => ({
-    currentEntry: null
+    currentEntry: null,
+    newest: null
   }),
   components: {
-    Blog1: () => import("entries/blog-1")
+    Blog0: () => ({
+      component: import("entries/blog-0"),
+      ...otherOptions
+    }),
+    Blog1: () => ({
+      component: import("entries/blog-1"),
+      ...otherOptions
+    })
   },
   mounted() {
+    const pathNewest = Number(location.pathname.replace(/^\/blog\//, ""));
+
     import("entries/newest").then(newest => {
-      this.currentEntry = Number(newest);
+      this.newest = Number(newest);
+
+      if (isNaN(pathNewest)) {
+        this.currentEntry = Number(newest);
+        history.replaceState({}, "newest", `/blog/${newest}`);
+      } else {
+        this.currentEntry = pathNewest;
+      }
     });
+  },
+  methods: {
+    changeCurrentEntry(dir) {
+      const newCurrentEntry = Math.min(
+        Math.max(this.currentEntry + dir, 0),
+        this.newest
+      );
+
+      history.replaceState({}, "newest", `/blog/${newCurrentEntry}`);
+
+      this.currentEntry = newCurrentEntry;
+    }
   }
 };
 </script>

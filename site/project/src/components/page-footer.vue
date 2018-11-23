@@ -15,7 +15,7 @@ footer.page-footer
 
 <style lang="postcss">
 .page-footer {
-  @apply bg-dark-coffee h-footer;
+  @apply bg-darker-coffee h-footer;
 }
 
 .footer__container {
