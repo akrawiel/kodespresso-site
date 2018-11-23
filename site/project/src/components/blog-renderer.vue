@@ -52,14 +52,14 @@ export default {
     })
   },
   mounted() {
-    const pathNewest = Number(location.pathname.replace(/^\/blog\//, ""));
+    const pathNewest = Number(location.hash.replace(/^#\/blog\//, ""));
 
     import("entries/newest").then(newest => {
       this.newest = Number(newest);
 
       if (isNaN(pathNewest)) {
         this.currentEntry = Number(newest);
-        history.replaceState({}, "newest", `/blog/${newest}`);
+        history.replaceState({}, "newest", `/#/blog/${newest}`);
       } else {
         this.currentEntry = pathNewest;
       }
@@ -72,7 +72,7 @@ export default {
         this.newest
       );
 
-      history.replaceState({}, "newest", `/blog/${newCurrentEntry}`);
+      history.replaceState({}, "newest", `/#/blog/${newCurrentEntry}`);
 
       this.currentEntry = newCurrentEntry;
     }
