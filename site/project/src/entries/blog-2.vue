@@ -4,7 +4,7 @@ blog-entry(:tags="tags")
   template(slot="id") 2
   template(slot="tags" slot-scope="tagData")
     span {{ tagData.tag }}
-  template(slot="time") 2018.11.29 00:00
+  template(slot="time") 2018.11.30 01:11
   template(slot="content")
     p.
       First article in this <em>mini-series</em> will cover the subject of one of the new
