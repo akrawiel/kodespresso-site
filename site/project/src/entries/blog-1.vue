@@ -4,10 +4,11 @@ blog-entry(:tags="tags")
   template(slot="id") 1
   template(slot="tags" slot-scope="tagData")
     span {{ tagData.tag }}
+  template(slot="time") 2018.11.23 03:00
   template(slot="content")
     p.
-      To start off this article we first need to define function composition,
-      which is the process of combining multiple functions into one stream
+      To start off this article we first need to define <em>function composition</em>,
+      which is the process of <em>combining multiple functions into one stream</em>
       with outputs of one function transmitting to next one.
       A basic example (with subsequent function executions) will definitely shed more light on the definition.
     pre.
@@ -29,14 +30,14 @@ blog-entry(:tags="tags")
     pre.
       ))))
     p.
-      Ah yes, the almighty 4 parentheses of apocalypse. The more functions you will try to add to composition,
+      Ah yes, the almighty <em>4 parentheses of apocalypse</em>. The more functions you will try to add to composition,
       the more you will have to struggle with those. You may ask yourself "Is there a rescue for me?"
-      and the answer is "Of course there is!". Here comes the first-class function composition.
+      and the answer is "Of course there is!". Here comes the <em>first-class function composition</em>.
     p.
-      And what hides under this definition? First-class composition is combining higher-order functions
+      And what hides under this definition? First-class composition is combining <em>higher-order functions</em>
       (or functions accepting and/or returning other functions) together.
       This allows us to naturally create composition flow as we go through all consecutive functions.
-      One of possible solutions is to use an array of functions to define the order of function execution.
+      One of possible solutions is to use an <em>array of functions</em> to define the order of function execution.
       Let's have a look at an example higher-order function composer utilizing an array of functions.
     pre.
       const functionComposer = functions => {
@@ -61,7 +62,7 @@ blog-entry(:tags="tags")
     pre.
       const composedFunction = x => functionComposer([roundDown, convertToDollars, addYouWonText, toUpperCase])
     p.
-      This function definition looks much cleaner and is more readable because you can now clearly
+      This function definition looks <em>much cleaner</em> and is <em>more readable</em> because you can now clearly
       see the function flow from left to right. And more readable code brings more maintainability and happiness
       for the future you or any other person reading your code. Isn't it lovely?
     p.
@@ -70,8 +71,8 @@ blog-entry(:tags="tags")
     pre.
       const composedFunction = x => _.flow([roundDown, convertToDollars, addYouWonText, toUpperCase])
     p.
-      There's also an alternative solution if you are using <a href="https://babeljs.io/">Babel</a> transpiler - the proposed pipeline
-      operator (link <a href="https://babeljs.io/docs/en/next/babel-plugin-proposal-pipeline-operator.html">here</a>)
+      There's also an alternative solution if you are using <a href="https://babeljs.io/">Babel</a> transpiler - the proposed <em>pipeline
+      operator</em> (link <a href="https://babeljs.io/docs/en/next/babel-plugin-proposal-pipeline-operator.html">here</a>)
       inspired by functional languages such as F# or Haskell. It brings in a new operator <code>|></code> to take care
       of combining functions. Our composed function with this operator would look like that:
     pre.
@@ -80,13 +81,12 @@ blog-entry(:tags="tags")
       Operator lets us clearly see the stream of data flowing through subsequent functions, but for the time being
       pipeline operator is still in a very early stage of development. That does not mean you shouldn't try it out :).
     p.
-      Function composition allowed me to write better and more concise code without unwanted side-effects, unneeded excess of parentheses
-      or illegible chained function executions. There are many more amazing aspects of functional programming which I will
-      surely cover in next entries. Feel free to contact me if you have any questions. But for the time being...
+      Function composition allowed me to write better and <em>more concise code without unwanted side-effects</em>, unneeded excess of parentheses
+      or <em>illegible chained function executions</em>. There are many more amazing aspects of functional programming which I will
+      surely cover in future entries. But for the time being...
     p
       span Stay tuned and 
       strong grab your cups!
-  template(slot="time") 2018.11.22 01:10
 </template>
 
 <script>

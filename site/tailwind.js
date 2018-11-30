@@ -50,7 +50,9 @@ let colors = {
   coffee: "#3c2a1e",
   "dark-coffee": "#2b1e16",
   "darker-coffee": "#1a120d",
-  latte: "#e2d0c3"
+  latte: "#e2d0c3",
+
+  emphasis: "#00ced1"
 };
 
 module.exports = {

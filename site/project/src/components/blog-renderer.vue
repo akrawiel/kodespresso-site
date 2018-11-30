@@ -49,6 +49,10 @@ export default {
     Blog1: () => ({
       component: import("entries/blog-1"),
       ...otherOptions
+    }),
+    Blog2: () => ({
+      component: import("entries/blog-2"),
+      ...otherOptions
     })
   },
   mounted() {

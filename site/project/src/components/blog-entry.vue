@@ -21,7 +21,7 @@
 
 <style lang="postcss" scoped>
 .blog-entry__panel {
-  @apply bg-dark-coffee rounded-lg py-4 px-4 mb-4;
+  @apply bg-dark-coffee rounded-lg py-8 px-8 mb-4;
 }
 
 .blog-entry__title {
@@ -33,11 +33,19 @@
 }
 
 .blog-entry__tags {
-  @apply flex items-center;
+  @apply flex flex-wrap items-center;
+}
+
+.blog-entry__time {
+  @apply mt-1;
 }
 
 .blog-entry__tag {
-  @apply bg-latte text-darker-coffee rounded p-1 mr-1 text-xs;
+  @apply bg-latte text-darker-coffee rounded p-1 mr-1 mt-1 text-xs;
+
+  & span {
+    white-space: nowrap;
+  }
 }
 
 .blog-entry__content a {
@@ -50,6 +58,10 @@
   line-height: 1.5;
   text-align: justify;
   text-indent: 1.5rem;
+
+  & small {
+    font-size: 0.7rem;
+  }
 }
 
 .blog-entry__content pre {
@@ -61,6 +73,10 @@
 .blog-entry__content code {
   @apply font-mono bg-darker-coffee p-1 rounded-lg;
   font-size: 0.9rem;
+}
+
+.blog-entry__content em {
+  @apply text-emphasis font-bold italic;
 }
 
 @media (width <= 568px) {
@@ -75,6 +91,10 @@
 
 .blog-entry__icon {
   @apply mr-2;
+}
+
+.blog-entry__icon.-left {
+  @apply mt-1;
 }
 
 .blog-entry__divider {
