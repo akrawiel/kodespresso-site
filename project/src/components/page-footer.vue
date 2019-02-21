@@ -3,7 +3,7 @@ footer.page-footer
   .footer__container
     .footer__copyright
       .footer-row
-        span © Copyright 2018, Aleksander Krawiel
+        span © Copyright 2018 - 2019, Aleksander Krawiel
       .footer-row
         span Website is open source and available 
         a.footer__link(href="https://github.com/kodespresso/kodespresso.github.io") here
@@ -12,7 +12,7 @@ footer.page-footer
         .footer__text Contact me!
         .footer__icons
           a.footer__link(href="mailto:a.krawiel@gmail.com?subject=Kodespresso"): i.fas.fa-envelope-square
-          a.footer__link(href="https://github.com/kodespresso"): i.fab.fa-github-square
+          a.footer__link(href="https://github.com/akrawiel"): i.fab.fa-github-square
 </template>
 
 <style lang="postcss">
