@@ -8,7 +8,7 @@
   },
   "scripts": {
     "serve": "parcel serve project/src/index.pug",
-    "build": "parcel build --no-source-maps -d ../kodespresso-release project/src/index.pug"
+    "build": "rm ../kodespresso-release/* && parcel build --no-source-maps -d ../kodespresso-release project/src/index.pug"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.1.0",
