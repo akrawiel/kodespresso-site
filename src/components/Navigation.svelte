@@ -1,13 +1,10 @@
 <script>
-  import page from "page";
+  import NavigationMenu from "components/NavigationMenu.svelte";
+  import { setupRouting, removeRouting } from "utilities/routing.js";
+  import { switchTheme, THEMES } from "utilities/themes.js";
   import { onDestroy, onMount } from "svelte";
 
   // theme configuration
-  const THEMES = {
-    DARK: "DARK",
-    LIGHT: "LIGHT"
-  };
-
   let theme = sessionStorage.getItem("theme") || THEMES.DARK;
 
   const toggleTheme = () => {
@@ -17,60 +14,31 @@
     theme = newTheme;
   };
 
-  const documentStyle = document.documentElement.style;
-
   $: {
-    switch (theme) {
-      case THEMES.DARK: {
-        documentStyle.setProperty("--bg-light-color", "#3c2a1e");
-        documentStyle.setProperty("--bg-dark-color", "#1a120d");
-        documentStyle.setProperty("--fg-normal-color", "#e2d0c3");
-        documentStyle.setProperty("--fg-highlight-color", "#a6aeec");
-        break;
-      }
-      case THEMES.LIGHT: {
-        documentStyle.setProperty("--bg-light-color", "#e2d0c3");
-        documentStyle.setProperty("--bg-dark-color", "#c8a78e");
-        documentStyle.setProperty("--fg-normal-color", "#503f35");
-        documentStyle.setProperty("--fg-highlight-color", "#000");
-        break;
-      }
-    }
+    switchTheme(theme);
   }
 
   // routing configuration
   onMount(() => {
-    page("/", () => {
-      console.log("main page");
-    });
-    page("/tags", () => {
-      console.log("tags page");
-    });
-    page("/about", () => {
-      console.log("about page");
-    });
-    page("*", () => {
-      console.log("not found page");
-    });
-
-    page.start();
+    setupRouting();
   });
 
   onDestroy(() => {
-    page.stop();
+    removeRouting();
   });
+
+  // menu
+  let menuOpen = false;
+
+  const toggleMenu = () => {
+    menuOpen = !menuOpen;
+  };
 </script>
 
 <style>
   header {
     padding: 0 1rem;
     width: 100%;
-  }
-
-  @media only screen and (min-width: 72rem) {
-    header {
-      max-width: 72rem;
-    }
   }
 
   nav {
@@ -83,27 +51,11 @@
   .link-container {
     align-items: center;
     display: flex;
+    position: relative;
   }
 
   .link-container *:not(:last-child) {
     margin-right: 0.75rem;
-  }
-
-  .only-big-screen,
-  .only-small-screen {
-    display: flex;
-  }
-
-  @media only screen and (max-width: 36rem) {
-    .only-big-screen {
-      display: none;
-    }
-  }
-
-  @media only screen and (min-width: 35.95rem) {
-    .only-small-screen {
-      display: none;
-    }
   }
 
   a,
@@ -131,11 +83,21 @@
     transform: scale(1) rotate(0deg);
     transition: all 0.2s ease-out,
       transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
   }
 
   ion-icon:hover {
-    filter: brightness(1.5);
+    filter: brightness(1.25);
     transform: scale(1.1) rotate(5deg);
+  }
+
+  ion-icon:active {
+    filter: brightness(1.5);
+    transform: scale(1.2) rotate(10deg);
+  }
+
+  ion-icon.menuOpen {
+    color: var(--bg-light-color);
   }
 </style>
 
@@ -144,13 +106,9 @@
     <div class="link-container">
       <a class="title" href="/">Kodespresso</a>
     </div>
-    <div class="link-container only-big-screen">
-      <ion-icon on:click={toggleTheme} name="contrast" />
-      <a href="/tags">Tags</a>
-      <a href="/about">About</a>
-    </div>
-    <div class="link-container only-small-screen">
-      <ion-icon name="menu" />
+    <div class="link-container">
+      <NavigationMenu {menuOpen} {toggleMenu} {toggleTheme} />
+      <ion-icon name="menu" class:menuOpen on:click={toggleMenu} />
     </div>
   </nav>
 </header>

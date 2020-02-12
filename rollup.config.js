@@ -25,14 +25,16 @@ export default {
     production &&
       copy({
         targets: [
-          { src: "public/index.html", dest: "dist", rename: "200.html" }
+          { src: "public/index.html", dest: "dist", rename: "200.html" },
+          { src: "public/favicon.png", dest: "dist" }
         ]
       }),
     alias({
       entries: [
         { find: "components", replacement: "./src/components" },
         { find: "styles", replacement: "./src/styles" },
-        { find: "pages", replacement: "./src/pages" }
+        { find: "pages", replacement: "./src/pages" },
+        { find: "utilities", replacement: "./src/utilities" }
       ]
     }),
     svelte({

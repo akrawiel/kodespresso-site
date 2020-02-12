@@ -18,12 +18,6 @@
     padding: 1rem;
     width: 100%;
   }
-
-  @media only screen and (min-width: 72rem) {
-    main {
-      max-width: 72rem;
-    }
-  }
 </style>
 
 {#if applicationVisible}
