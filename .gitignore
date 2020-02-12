@@ -1,4 +1,6 @@
-.cache
 .DS_STORE
-node_modules
-dist
+/node_modules
+/public/build/
+/dist/200.html
+/dist/CNAME
+/dist/build

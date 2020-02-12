@@ -1,0 +1,50 @@
+@import-normalize;
+@import-sanitize;
+
+html {
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  align-items: center;
+  background-color: var(--bg-light-color);
+  color: var(--fg-normal-color);
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+}
+
+a,
+body,
+code,
+em,
+div,
+footer,
+main,
+header,
+h1,
+h2,
+ion-icon,
+p,
+pre,
+span {
+  transition: all 0.25s ease-out;
+}
+
+h1,
+h2,
+p {
+  margin: 0.5rem 0;
+}
+
+em {
+  color: var(--fg-highlight-color);
+  font-weight: bold;
+}
