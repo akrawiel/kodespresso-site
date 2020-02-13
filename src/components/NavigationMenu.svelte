@@ -4,24 +4,25 @@
 
 <style>
   :root {
-    --menu-width: 28rem;
+    --menu-width: 20rem;
   }
 
   .menu-container {
-    background-color: var(--fg-normal-color);
+    background-color: var(--bg-dark-color);
     border-radius: 50%;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
-    color: var(--bg-light-color);
+    color: var(--fg-normal-color);
     height: calc(1 * var(--menu-width));
     right: calc(-1 * var(--menu-width));
     position: fixed;
     top: calc(-1 * var(--menu-width));
     width: calc(1 * var(--menu-width));
+    z-index: 1;
   }
 
   .menu-container.menuOpen {
-    right: -16rem;
-    top: -16rem;
+    right: calc(-0.5 * var(--menu-width));
+    top: calc(-0.5 * var(--menu-width) + 0.5rem);
   }
 
   .menu-container > * {
@@ -30,6 +31,7 @@
     cursor: pointer;
     display: flex;
     filter: brightness(1);
+    font-size: 0.875rem;
     font-weight: bold;
     left: 0;
     position: absolute;
@@ -51,7 +53,7 @@
         calc(0.5 * var(--menu-width)),
         calc(0.5 * var(--menu-width))
       )
-      rotate(-20deg) translateX(calc(-0.5 * var(--menu-width) + 1.5rem));
+      rotate(-10deg) translateX(calc(-0.5 * var(--menu-width) + 1.25rem));
   }
 
   .menu-container > :nth-child(2) {
@@ -59,7 +61,7 @@
         calc(0.5 * var(--menu-width)),
         calc(0.5 * var(--menu-width))
       )
-      rotate(-35deg) translateX(calc(-0.5 * var(--menu-width) + 1.5rem));
+      rotate(-30deg) translateX(calc(-0.5 * var(--menu-width) + 1.25rem));
   }
 
   .menu-container > :nth-child(3) {
@@ -67,7 +69,7 @@
         calc(0.5 * var(--menu-width)),
         calc(0.5 * var(--menu-width))
       )
-      rotate(-50deg) translateX(calc(-0.5 * var(--menu-width) + 1.5rem));
+      rotate(-50deg) translateX(calc(-0.5 * var(--menu-width) + 1.25rem));
   }
 
   .menu-container > :nth-child(4) {
@@ -75,7 +77,7 @@
         calc(0.5 * var(--menu-width)),
         calc(0.5 * var(--menu-width))
       )
-      rotate(-65deg) translateX(calc(-0.5 * var(--menu-width) + 1.5rem));
+      rotate(-70deg) translateX(calc(-0.5 * var(--menu-width) + 1.25rem));
   }
 
   ion-icon {

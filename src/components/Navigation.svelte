@@ -83,7 +83,7 @@
     transform: scale(1) rotate(0deg);
     transition: all 0.2s ease-out,
       transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 1;
+    z-index: 2;
   }
 
   ion-icon:hover {
@@ -95,10 +95,6 @@
     filter: brightness(1.5);
     transform: scale(1.2) rotate(10deg);
   }
-
-  ion-icon.menuOpen {
-    color: var(--bg-light-color);
-  }
 </style>
 
 <header>
@@ -108,7 +104,7 @@
     </div>
     <div class="link-container">
       <NavigationMenu {menuOpen} {toggleMenu} {toggleTheme} />
-      <ion-icon name="menu" class:menuOpen on:click={toggleMenu} />
+      <ion-icon name={menuOpen ? 'close' : 'menu'} on:click={toggleMenu} />
     </div>
   </nav>
 </header>
