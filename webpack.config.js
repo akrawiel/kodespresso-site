@@ -62,14 +62,15 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css"
     }),
-    prod &&
-      new CopyPlugin([
-        {
-          from: path.resolve("public", "index.html"),
-          to: path.resolve("dist", "200.html")
-        },
-        path.resolve("public", "favicon.png")
-      ])
+    prod
+      ? new CopyPlugin([
+          {
+            from: path.resolve("public", "index.html"),
+            to: path.resolve("dist", "200.html")
+          },
+          path.resolve("public", "favicon.png")
+        ])
+      : () => {}
   ],
   devServer: {
     historyApiFallback: true
