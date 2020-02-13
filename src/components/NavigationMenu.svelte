@@ -10,6 +10,7 @@
   .menu-container {
     background-color: var(--fg-normal-color);
     border-radius: 50%;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
     color: var(--bg-light-color);
     height: calc(1 * var(--menu-width));
     right: calc(-1 * var(--menu-width));

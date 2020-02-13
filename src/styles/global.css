@@ -38,6 +38,11 @@ span {
   transition: all 0.25s ease-out;
 }
 
+.pure-g [class*="pure-u"] {
+  font-family: "PT Sans", sans-serif;
+  transition: none;
+}
+
 h1,
 h2,
 p {
@@ -47,4 +52,40 @@ p {
 em {
   color: var(--fg-highlight-color);
   font-weight: bold;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.direction-row {
+  flex-direction: row;
+}
+
+.direction-column {
+  flex-direction: column;
 }

@@ -1,31 +1,27 @@
 <style>
   footer {
-    align-items: center;
+    align-content: center;
     background-color: var(--bg-dark-color);
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
-    display: flex;
+    box-sizing: border-box;
     height: 5rem;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 1rem;
     width: 100%;
   }
 
-  footer > * {
+  .footer-container {
     align-items: center;
     display: flex;
-    height: 100%;
   }
 
-  footer > div > :not(:last-child) {
+  @media only screen and (min-width: 35.5em) {
+    .footer-container.to-right {
+      justify-content: flex-end;
+    }
+  }
+
+  .footer-container > :not(:last-child) {
     margin-right: 0.5rem;
-  }
-
-  footer > *:nth-child(odd) {
-    justify-content: flex-start;
-  }
-
-  footer > *:nth-child(even) {
-    justify-content: flex-end;
   }
 
   a {
@@ -44,18 +40,22 @@
   }
 </style>
 
-<footer>
-  <div>© 2020, Olek Krawiel</div>
-  <div>
-    <span>Find me here</span>
-    <a href="https://github.com/akrawiel" target="_blank" title="GitHub">
-      <ion-icon name="logo-github" />
-    </a>
-    <a
-      href="https://linkedin.com/in/aleksander-krawiel"
-      target="_blank"
-      title="LinkedIn">
-      <ion-icon name="logo-linkedin" />
-    </a>
+<footer class="pure-g flex items-center">
+  <div class="pure-u-1 pure-u-md-1-2">
+    <div class="footer-container">© 2020, Olek Krawiel</div>
+  </div>
+  <div class="pure-u-1 pure-u-md-1-2">
+    <div class="footer-container to-right">
+      <span>Find me here</span>
+      <a href="https://github.com/akrawiel" target="_blank" title="GitHub">
+        <ion-icon name="logo-github" />
+      </a>
+      <a
+        href="https://linkedin.com/in/aleksander-krawiel"
+        target="_blank"
+        title="LinkedIn">
+        <ion-icon name="logo-linkedin" />
+      </a>
+    </div>
   </div>
 </footer>

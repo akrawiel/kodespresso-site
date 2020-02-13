@@ -18,15 +18,23 @@
     padding: 1rem;
     width: 100%;
   }
+
+  ion-icon {
+    color: var(--fg-normal-color);
+    font-size: 8rem;
+  }
 </style>
 
 {#if applicationVisible}
   <Navigation />
-  <main>
-    <p>
-      Now it's powered by
-      <em>Svelte</em>
-    </p>
+  <main class="flex items-center justify-start direction-column">
+    <div>
+      This blog is currently
+      <b>WIP</b>
+    </div>
+    <div>
+      <ion-icon name="build" />
+    </div>
   </main>
   <Footer />
 {/if}
