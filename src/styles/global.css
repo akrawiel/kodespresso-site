@@ -46,11 +46,17 @@ span {
 h1,
 h2,
 p {
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
 }
 
 em {
   color: var(--fg-highlight-color);
+  font-weight: bold;
+}
+
+h1,
+h2 {
+  font-family: "Caveat", cursive;
   font-weight: bold;
 }
 

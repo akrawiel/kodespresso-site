@@ -1,7 +1,4 @@
 .DS_STORE
-/node_modules
-/public/build/
-/dist/200.html
-/dist/favicon.png
-/dist/CNAME
-/dist/build
+node_modules
+dist
+public/bundle.*

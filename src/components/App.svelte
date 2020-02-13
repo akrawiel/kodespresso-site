@@ -1,6 +1,7 @@
 <script>
   import Footer from "components/Footer.svelte";
   import Navigation from "components/Navigation.svelte";
+  import BlogEntry from "components/BlogEntry.svelte";
   import { onMount } from "svelte";
 
   let applicationVisible = false;
@@ -35,6 +36,7 @@
     <div>
       <ion-icon name="build" />
     </div>
+    <BlogEntry />
   </main>
   <Footer />
 {/if}
