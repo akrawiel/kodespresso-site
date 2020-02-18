@@ -49,6 +49,7 @@
   }
 
   .menu-container > :nth-child(1) {
+    text-decoration: line-through;
     transform: translate(
         calc(0.5 * var(--menu-width)),
         calc(0.5 * var(--menu-width))
@@ -57,6 +58,7 @@
   }
 
   .menu-container > :nth-child(2) {
+    text-decoration: line-through;
     transform: translate(
         calc(0.5 * var(--menu-width)),
         calc(0.5 * var(--menu-width))
@@ -65,6 +67,7 @@
   }
 
   .menu-container > :nth-child(3) {
+    text-decoration: line-through;
     transform: translate(
         calc(0.5 * var(--menu-width)),
         calc(0.5 * var(--menu-width))
