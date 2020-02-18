@@ -92,7 +92,8 @@ module.exports = {
       : () => {},
     new HtmlWebpackPlugin({
       filename: prod ? "200.html" : "index.html",
-      template: path.resolve(__dirname, "public", "index.html")
+      template: path.resolve(__dirname, "public", "index.html"),
+      inject: false
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css"
