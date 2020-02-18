@@ -43,6 +43,21 @@ span {
   transition: none;
 }
 
+code,
+pre {
+  background-color: var(--bg-darker-color);
+  border-radius: 0.25rem;
+  color: var(--fg-normal-color);
+}
+
+code {
+  padding: 0.25rem;
+}
+
+pre {
+  padding: 0.75rem;
+}
+
 h1,
 h2,
 p {
@@ -54,10 +69,72 @@ em {
   font-weight: bold;
 }
 
+hr {
+  border-color: var(--fg-normal-color);
+  margin: 1.5rem 1rem;
+  position: relative;
+}
+
+hr::before {
+  background-color: var(--fg-normal-color);
+  border-radius: 50%;
+  border: 0.1875rem solid var(--bg-dark-color);
+  content: "";
+  height: 0.875rem;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  transition: all 0.25s ease-out;
+  width: 0.875rem;
+}
+
 h1,
 h2 {
   font-family: "Caveat", cursive;
   font-weight: bold;
+}
+
+blockquote {
+  border: 0.0625rem dashed var(--fg-normal-color);
+  border-radius: 0.25rem;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+blockquote::before {
+  content: '"';
+  position: absolute;
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: bold;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+a {
+  color: var(--fg-highlight-color);
+  font-weight: bold;
+  filter: brightness(1);
+}
+
+a:hover {
+  color: var(--fg-highlight-color);
+  filter: brightness(1.25);
+}
+
+p {
+  text-align: justify;
+}
+
+p + p {
+  margin-top: 1rem;
+}
+
+.spacer-1 {
+  height: 1rem;
+  width: 100%;
 }
 
 .flex {

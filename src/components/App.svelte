@@ -22,20 +22,19 @@
 
   ion-icon {
     color: var(--fg-normal-color);
-    font-size: 8rem;
+    font-size: 1.5rem;
   }
 </style>
 
 {#if applicationVisible}
   <Navigation />
   <main class="flex items-center justify-start direction-column">
-    <div>
-      This blog is currently
-      <b>WIP</b>
-    </div>
-    <div>
+    <div class="flex items-center">
+      <span>This blog is currently&nbsp;</span>
+      <b>WIP&nbsp;</b>
       <ion-icon name="build" />
     </div>
+    <div class="spacer-1" />
     <BlogEntry />
   </main>
   <Footer />

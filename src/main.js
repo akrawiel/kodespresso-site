@@ -1,5 +1,7 @@
 import "styles/global.css";
 
+import "highlight.js/styles/default.css";
+
 import App from "components/App.svelte";
 
 const app = new App({
